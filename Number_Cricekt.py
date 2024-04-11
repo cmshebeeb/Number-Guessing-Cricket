@@ -1,3 +1,5 @@
+#random function
+
 import random
 def user_bowling():
     cpu_score=0
@@ -34,7 +36,7 @@ def result(cpu_score,user_score):
     if cpu_score>=user_score:
         print("You loss by "+str(runs)+" Runs\n Better luck for next time")
     else:
-        print("You won by "+str(runs)+" Runs")
+        print("You won by "+str(runs)+" Runs\n Congratulations!!!")
         
     
 
@@ -50,10 +52,12 @@ if sum%2==0:
             chose=input("You won the Toss\n Choose 1 for bat and 2 bowl")
             if chose=='1':
                 user_score=user_batting()
+                print(" Fisrt Innings completed\n Target: "+str(user_score+1))
                 cpu_score=user_bowling()
                 result(cpu_score,user_score)
             elif chose=='2':
                 cpu_score=user_bowling()
+                print(" Fisrt Innings completed\n Target: "+str(cpu_score+1))
                 user_score=user_batting()
                 result(cpu_score,user_score)
             else:
@@ -63,11 +67,13 @@ if sum%2==0:
         if chose==0:
             print("cpu choose to ball first")
             user_score=user_batting()
+            print(" Fisrt Innings completed\n Target: "+str(user_score+1))
             cpu_score=user_bowling()
             result(cpu_score,user_score)
         elif chose==1:
             print("cpu choose to bat first")
             cpu_score=user_bowling()
+            print(" Fisrt Innings completed\n Target: "+str(cpu_score+1))
             user_score=user_batting()
             result(cpu_score,user_score)
 else:
