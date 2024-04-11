@@ -29,34 +29,70 @@ def user_batting():
             print("cpu guessed "+str(cpu_bowl))
             print("Total Score: "+str(user_score))
     return user_score
+def result(cpu_score,user_score):
+    runs=abs(cpu_score-user_score)
+    if cpu_score>=user_score:
+        print("You loss by "+str(runs)+" Runs\n Better luck for next time")
+    else:
+        print("You won by "+str(runs)+" Runs")
+        
+    
 
 print("Welcome Cricket Tornament -2024")
 print("=================================")
 cpu_guess=random.randint(0,11)
-user_guess=input("\nIt is Toss Time\n\t Enter odd or even\t")
-sum=cpu_guess+user_guess
+user_guess=int(input("Enter an integer "))
+chosing=input("\nIt is Toss Time\n\t Enter odd or even\t")
+sum=int(cpu_guess)+int(user_guess)
 if sum%2==0:
-    if cpu_guess.lower=='even':
+    if chosing.lower=='even':
         while True:
             chose=input("You won the Toss\n Choose 1 for bat and 2 bowl")
             if chose=='1':
-                user_batting()
+                user_score=user_batting()
+                cpu_score=user_bowling()
+                result(cpu_score,user_score)
             elif chose=='2':
-                user_bowling()
+                cpu_score=user_bowling()
+                user_score=user_batting()
+                result(cpu_score,user_score)
             else:
                 break
     else:
         chose=random.randint(0,1)
         if chose==0:
             print("cpu choose to ball first")
-            user_batting()
+            user_score=user_batting()
+            cpu_score=user_bowling()
+            result(cpu_score,user_score)
         elif chose==1:
             print("cpu choose to bat first")
-            user_bowling()
-        
-
-
-
-
-cpu_score=user_bowling()
-user_score=user_batting()
+            cpu_score=user_bowling()
+            user_score=user_batting()
+            result(cpu_score,user_score)
+else:
+    if chosing.lower=='odd':
+        while True:
+            chose=input("You won the Toss\n Choose 1 for bat and 2 bowl")
+            if chose=='1':
+                user_score=user_batting()
+                cpu_score=user_bowling()
+                result(cpu_score,user_score)
+            elif chose=='2':
+                cpu_score=user_bowling()
+                user_score=user_batting()
+                result(cpu_score,user_score)
+            else:
+                break
+    else:
+        chose=random.randint(0,1)
+        if chose==0:
+            print("cpu choose to ball first")
+            user_score=user_batting()
+            cpu_score=user_bowling()
+            result(cpu_score,user_score)
+        elif chose==1:
+            print("cpu choose to bat first")
+            cpu_score=user_bowling()
+            user_score=user_batting()
+            result(cpu_score,user_score)
