@@ -11,8 +11,10 @@ def toss_won():
         chose=input("You won the Toss\n Choose 1 for bat and 2 bowl")
         if chose=='1':
             user_first.user_bat()
+            break
         elif chose=='2':
             user_first.user_bowl()
+            break
         else:
             break
 def toss_loss():
@@ -21,8 +23,10 @@ def toss_loss():
         if chose==0:
             print("cpu choose to ball first")
             user_first.user_bat()
+            break
         elif chose==1:
             print("cpu choose to bat first")
             user_first.user_bowl()
+            break
         else:
             break
